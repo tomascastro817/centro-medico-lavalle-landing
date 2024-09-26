@@ -1,5 +1,6 @@
 // src/components/Header.jsx
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import logo from '../image/logo-removebg-preview.png';
 
 const Header = () => {
@@ -16,13 +17,12 @@ const Header = () => {
         <img
           src={logo} // Reemplaza con la ruta a tu logo
           alt="Centro Médico Lavalle"
-          className="h-16 w-auto"
+          className="h-20 w-auto"
         />
 
         {/* Navigation Desktop */}
         <nav className="hidden md:flex space-x-8 items-center">
           <a href="#team" className="text-lg font-semibold hover:text-sky-500 transition">Equipo médico</a>
-          <a href="#services" className="text-lg font-semibold hover:text-sky-500 transition">Servicios</a>
           <a href="#contact" className="text-lg font-semibold hover:text-sky-500 transition">Contacto</a>
         </nav>
 
@@ -37,13 +37,18 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-sky-100 opacity-85 text-black py-4`}>
+      <motion.div
+        className={`md:hidden bg-sky-100 opacity-85 text-black py-4`}
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: isMenuOpen ? 'auto' : 0, opacity: isMenuOpen ? 1 : 0 }}
+        transition={{ duration: 3.3, ease: 'easeInOut' }}
+        style={{ overflow: 'hidden' }}
+      >
         <nav className="flex flex-col items-center space-y-4">
-          <a href="#services" className="text-lg font-semibold hover:text-gray-300 transition">Servicios</a>
           <a href="#team" className="text-lg font-semibold hover:text-gray-300 transition">Equipo Médico</a>
           <a href="#contact" className="text-lg font-semibold hover:text-gray-300 transition">Contacto</a>
         </nav>
-      </div>
+      </motion.div>
     </header>
   );
 };

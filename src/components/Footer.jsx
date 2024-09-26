@@ -1,46 +1,33 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className="bg-gray-800 text-white py-10">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Información de contacto */}
           <div className="mb-6 md:mb-0 text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-3">Centro Médico Lavalle</h3>
-            <p className="text-gray-400 mb-2">
-              Calle Ejemplo 123, Ciudad, País
-            </p>
-            <p className="text-gray-400 mb-2">
-              Teléfono: (123) 456-7890
-            </p>
-            <p className="text-gray-400">
-              Email: contacto@centromedicolavalle.com
-            </p>
+            <h3 className="text-3xl font-bold mb-3 text-sky-500">Centro Médico Lavalle</h3>
+            <p className="text-gray-300 mb-2">Calle Lavalle 1351, San Miguel de Tucuman, Argentina</p>
+            <p className="text-gray-300 mb-2">Teléfono: +54 9 381 2319699</p>
+            <p className="text-gray-300">Email: centromedicolavalle@gmail.com</p>
           </div>
 
           {/* Enlaces de navegación */}
           <div className="flex flex-col md:flex-row md:space-x-6 mb-6 md:mb-0">
-            <a href="#services" className="text-gray-400 hover:text-sky-500 mb-2 md:mb-0">Servicios</a>
-            <a href="#team" className="text-gray-400 hover:text-sky-500 mb-2 md:mb-0">Equipo Médico</a>
-            <a href="#location" className="text-gray-400 hover:text-sky-500 mb-2 md:mb-0">Ubicación</a>
+            <a href="#team" className="text-gray-300 hover:text-sky-400 hover:underline mb-2 md:mb-0 transition duration-300">Equipo Médico</a>
+            <a href="#location" className="text-gray-300 hover:text-sky-400 hover:underline mb-2 md:mb-0 transition duration-300">Contacto</a>
           </div>
 
           {/* Redes sociales */}
           <div className="flex space-x-4">
-            <a href="https://www.facebook.com/" target='blank' className="text-gray-400 hover:text-sky-500">
-              <FaFacebookF size={20} />
+            <a href="https://www.instagram.com/centromedico_lavalle/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-sky-400 transition duration-300">
+              <FaInstagram size={24} />
             </a>
-            <a href="https://x.com/" target='blank' className="text-gray-400 hover:text-sky-500">
-              <FaTwitter size={20} />
-            </a>
-            <a href="https://www.instagram.com/" target='blank' className="text-gray-400 hover:text-sky-500">
-              <FaInstagram size={20} />
-            </a>
-            <a href="https://www.linkedin.com/" target='blank' className="text-gray-400 hover:text-sky-500">
-              <FaLinkedinIn size={20} />
+            <a href="https://wa.me/3812319699" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-sky-400 transition duration-300">
+              <FaWhatsapp size={24} />
             </a>
           </div>
         </div>
