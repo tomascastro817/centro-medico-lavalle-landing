@@ -41,7 +41,7 @@ const Header = () => {
         className={`md:hidden bg-sky-100 opacity-85 text-black py-4`}
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: isMenuOpen ? 'auto' : 0, opacity: isMenuOpen ? 1 : 0 }}
-        transition={{ duration: 3.3, ease: 'easeInOut' }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         style={{ overflow: 'hidden' }}
       >
         <nav className="flex flex-col items-center space-y-4">
