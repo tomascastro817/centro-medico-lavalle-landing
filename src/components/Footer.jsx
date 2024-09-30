@@ -11,7 +11,6 @@ const Footer = () => {
           <div className="mb-6 md:mb-0 text-center md:text-left">
             <h3 className="text-3xl font-bold mb-3 text-sky-500">Centro Médico Lavalle</h3>
             <p className="text-gray-300 mb-2">Calle Lavalle 1351, San Miguel de Tucuman, Argentina</p>
-            <p className="text-gray-300 mb-2">Teléfono: +54 9 381 2319699</p>
             <p className="text-gray-300">Email: centromedicolavalle@gmail.com</p>
           </div>
 

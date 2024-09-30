@@ -6,7 +6,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 const Direccion = () => {
   return (
     <motion.div
-      className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 text-white py-4 shadow-lg sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
+      className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 text-white shadow-lg sticky top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out"
       initial={{ y: -180, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -100, opacity: 0 }}

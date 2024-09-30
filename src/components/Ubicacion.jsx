@@ -1,6 +1,6 @@
 // src/components/Ubiacion.jsx
 import React from 'react';
-import { FaMapMarkerAlt, FaPhoneAlt, FaClock } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const Ubicacion = () => {
   return (
@@ -19,13 +19,10 @@ const Ubicacion = () => {
                 <FaMapMarkerAlt className="text-blue-500 text-3xl mr-3" />
                 <p className="text-gray-700">Dirección: Lavalle 1351, San Miguel de Tucuman, Argentina.</p>
               </div>
-              <div className="flex items-center mb-4">
-                <FaPhoneAlt className="text-green-500 text-3xl mr-3" />
-                <p className="text-gray-700">Teléfono: (381) 2319699</p>
-              </div>
+              
               <div className="flex items-center mb-4">
                 <FaClock className="text-orange-500 text-3xl mr-3" />
-                <p className="text-gray-700">Horario de Atención: Lunes a Viernes - 9:00 AM a 6:00 PM</p>
+                <p className="text-gray-700">Horario de Atención: Lunes a Sabado - 9:00 AM a 9:00 PM</p>
               </div>
             </div>
           </div>
