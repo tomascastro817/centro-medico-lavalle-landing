@@ -6,7 +6,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        celeste: '#00BFFF', // Reemplaza con el color exacto de tu marca
+        celeste: '#00BFFF', // Mantener compatibilidad si es necesario
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+        slate: {
+          850: '#1e293b',
+          900: '#0f172a',
+        }
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
       },
     },
   },

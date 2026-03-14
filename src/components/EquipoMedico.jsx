@@ -1,123 +1,109 @@
 // src/components/EquipoMedico.jsx
 import React from 'react';
-import { FaHeartbeat, FaUserMd, FaBone, FaWhatsapp, FaAppleAlt, FaSmile } from 'react-icons/fa';
+import { FaCalendarAlt, FaWhatsapp } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import Jorge from '../image/jorge-dalguerre.jpg'
-import Jhon from '../image/Jhon-dalguerre.jpg'
-import Andrea from '../image/andrea-raimondo.jpg'
-import Rodolfo from '../image/rodolfo-canelo.jpg'
-import Rocio from '../image/rocio-lara-payeras.jpg'
-import Alejandra from '../image/alejandra-diaz.jpg'
+import { equipoData } from '../data/equipo';
 
-// Datos del equipo médico
-const equipo = [
-  {
-    id: 1,
-    nombre: 'Dr. Dalguerre, Jorge W.',
-    especialidad: 'Endocrinologia y medicina general',
-    imagen: Jorge,
-    descripcion: 'Experto en trastornos hormonales y metabólicos, comprometida con el bienestar de sus pacientes.',
-    icon: <FaUserMd className="text-purple-500 text-3xl" />,
-    turnoLink: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2gsKak1qXIFnxPBcRj_5UzshnS_ZbX1Lz0ehA6oYmWlAJCNHC0QngC1ZhTWhIPmOJGgcvnT46w',
-    whatsapp: '3814389069'
-  },
-  {
-    id: 2,
-    nombre: 'Dr. Dalguerre, Jhon Rosch.',
-    especialidad: 'Traumatología',
-    imagen: Jhon,
-    //descripcion: 'Experta en trastornos hormonales y metabólicos, comprometida con el bienestar de sus pacientes.',
-    descripcion: 'Especialista en lesiones y enfermedades del sistema musculoesquelético, con un enfoque en la recuperación rápida.',
-    icon: <FaBone className="text-orange-500 text-3xl" />,
-    turnoLink: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0y9ssyGbQxvZ_Y3u7tJjShmISzbtirdKhCcAUL-0j06EiP2-ZQ9K-V84tQUwK-WCq2C_EfzwNN',
-    whatsapp: '5493814786813'
-  },
-  {
-    id: 3,
-    nombre: 'Lic. Raimondo, Andrea.',
-    especialidad: 'Psicología',
-    imagen: Andrea,
-    descripcion: 'Experta en salud mental, ofreciendo apoyo y terapias personalizadas.',
-    icon: <FaSmile className="text-blue-500 text-3xl" />,
-    turnoLink: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0y9ssyGbQxvZ_Y3u7tJjShmISzbtirdKhCcAUL-0j06EiP2-ZQ9K-V84tQUwK-WCq2C_EfzwNN',
-    whatsapp: '3816342842'
-  },
-  {
-    id: 4,
-    nombre: 'Dr. Canelo, Rodolfo.',
-    especialidad: 'Cardiologia y medicina laboral',
-    imagen: Rodolfo,
-    descripcion: 'Especialista en enfermedades del corazón, en salud ocupacional y prevención de riesgos laborales.',
-    icon: <FaHeartbeat className="text-red-500 text-3xl" />,
-    turnoLink: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0y9ssyGbQxvZ_Y3u7tJjShmISzbtirdKhCcAUL-0j06EiP2-ZQ9K-V84tQUwK-WCq2C_EfzwNN',
-    whatsapp: '3814465042'
-  },
-  {
-    id: 5,
-    nombre: 'Lic. Payeras, Rocio.',
-    especialidad: 'Nutricionista',
-    imagen: Rocio,
-    descripcion: 'Especialista en nutrición y dietética, enfocada en promover hábitos saludables.',
-    icon: <FaAppleAlt className="text-green-500 text-3xl" />,
-    turnoLink: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0y9ssyGbQxvZ_Y3u7tJjShmISzbtirdKhCcAUL-0j06EiP2-ZQ9K-V84tQUwK-WCq2C_EfzwNN',
-    whatsapp: '3816670751'
-  },
-  {
-    id: 6,
-    nombre: 'Lic. Diaz, Alejandra.',
-    especialidad: 'Nutricionista',
-    imagen: Alejandra,
-    descripcion: 'Especialista en nutrición y dietética, dedicada a promover una alimentación saludable y personalizada para mejorar el bienestar de sus pacientes.',
-    icon: <FaAppleAlt className="text-green-500 text-3xl" />,
-    turnoLink: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0y9ssyGbQxvZ_Y3u7tJjShmISzbtirdKhCcAUL-0j06EiP2-ZQ9K-V84tQUwK-WCq2C_EfzwNN',
-    whatsapp: '3814766977'
-  },
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
 
-  // Agrega más miembros del equipo según sea necesario
-];
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
 
 const EquipoMedico = () => {
   return (
-    <section id="team" className="py-16 bg-sky-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-sky-700 via-sky-500 to-sky-300">
-          Conoce a nuestro equipo médico
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {equipo.map((miembro) => (
+    <section id="team" className="py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        {/* Header */}
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="inline-block bg-primary-100 text-primary-700 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">
+            Nuestros profesionales
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-primary-800 via-primary-600 to-primary-400">
+            Nuestro Equipo Médico
+          </h2>
+          <p className="text-slate-500 text-lg leading-relaxed">
+            Profesionales altamente capacitados, listos para brindarte la mejor atención.
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
+          {equipoData.map((miembro) => (
             <motion.div
               key={miembro.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105 hover:shadow-xl relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              variants={cardVariants}
+              className="group bg-white border border-slate-100 shadow-lg rounded-3xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-100/40 transition-all duration-400 flex flex-col"
             >
-              <div className="relative">
-                <img src={miembro.imagen} alt={miembro.nombre} className="w-full h-48 sm:h-56 md:h-64 object-contain object-center mx-auto" />
-                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-transparent to-transparent p-4 text-center">
-                  {miembro.icon}
-                </div>
+              {/* Photo */}
+              <div className="relative h-72 overflow-hidden bg-slate-100">
+                <img
+                  src={miembro.imagen}
+                  loading="lazy"
+                  alt={`Dr/a. ${miembro.nombre}`}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
               </div>
-              <div className="p-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800">{miembro.nombre}</h3>
-                <p className="text-sm sm:text-md text-gray-600 mb-2">{miembro.especialidad}</p>
-                <p className="text-sm sm:text-md text-gray-700 mb-4">{miembro.descripcion}</p>
-                <div className="flex flex-col sm:flex-row justify-between gap-2">
-                  <a href={miembro.turnoLink} target='blanck' className="flex items-center justify-center bg-sky-500 text-white font-bold py-2 px-4 rounded hover:bg-sky-600 transition duration-300 w-full sm:w-auto">
+
+              {/* Card Body */}
+              <div className="p-7 flex flex-col flex-grow relative">
+                {/* Specialty pill */}
+                <div className="absolute -top-4 left-7">
+                  <span className="inline-block bg-gradient-to-r from-primary-600 to-primary-500 text-white text-[11px] font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wide">
+                    {miembro.especialidad}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-extrabold mt-4 mb-2 text-slate-800 leading-snug">
+                  {miembro.nombre}
+                </h3>
+                <p className="text-slate-500 text-sm mb-6 flex-grow leading-relaxed line-clamp-3">
+                  {miembro.descripcion}
+                </p>
+
+                {/* Actions */}
+                <div className="flex items-center gap-3 pt-5 border-t border-slate-100">
+                  <a
+                    href={miembro.turnoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Agendar turno con ${miembro.nombre}`}
+                    className="flex-1 flex items-center justify-center gap-2 bg-slate-900 text-white font-semibold py-3 px-4 rounded-2xl hover:bg-primary-600 transition-colors duration-300 text-sm shadow-sm group/btn"
+                  >
+                    <FaCalendarAlt className="group-hover/btn:scale-110 transition-transform" />
                     Agendar turno
-                    <span className="ml-2">
-                      <FaUserMd />
-                    </span>
                   </a>
-                  <a href={`https://wa.me/${miembro.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-300 w-full sm:w-auto">
-                    <FaWhatsapp className="mr-2" />
-                    WhatsApp
+                  <a
+                    href={`https://wa.me/${miembro.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Contactar a ${miembro.nombre} por WhatsApp`}
+                    className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-green-50 border border-green-200 text-green-600 hover:bg-green-500 hover:text-white hover:border-green-500 transition-all duration-300 rounded-2xl shadow-sm"
+                  >
+                    <FaWhatsapp className="text-2xl" />
                   </a>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
